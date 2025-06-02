@@ -22,6 +22,15 @@ impl HashTable{
         HashTable {buckets, size}
     }
 
+    //Função de dispersão simplçes:
+    //Soma os valores dos bytes da chave e calcula do modulo pelo tamanho da tabela
+    // Essa funçãotransforma a chave em um indice de 0 até size-1
+
+    fn simple_hash(&self, key: &String) -> usize{
+        let sum: uszie = key.bytes().map(|b|b as usize).sum()
+        sum % self.size
+    }
+
     //insere um par ( chave, valor), na tabela hash;
 
     fn insert(&mut self, key: String, value: i32){
