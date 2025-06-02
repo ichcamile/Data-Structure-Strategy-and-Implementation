@@ -84,7 +84,7 @@ impl Node {
     // Insere um valor na árvore
     fn insert(mut self, value: i32) -> Box<Node> {
         if value < self.value {
-            self.left = match self.left {
+            self.left = match self.left 
                 Some(left) => Some(left.insert(value)),
                 None => Some(Box::new(Node::new(value))),
             };
@@ -107,7 +107,7 @@ impl Node {
             self.right.as_ref().map_or(false, |right| right.search(value))
         }
     }
-}
+
 
 // Definição da árvore
 #[derive(Debug)]
