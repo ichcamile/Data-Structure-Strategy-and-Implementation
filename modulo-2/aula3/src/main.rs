@@ -65,11 +65,11 @@ fn main(){
     table.insert("chave_prof".to_string(),654);
 
     //recupera os valores associados as chaves
-    printIn!("Valor para 'Chave1': {:?}", table.get(&"Chave1".to_string()));
-    printIn!("Valor para 'Chave2': {:?}", table.get(&"Chave2".to_string()));
-    printIn!("Valor para 'Outra_chave': {:?}", table.get(&"Outra_chave".to_string()));
-    printIn!("Valor para 'chave_prof': {:?}", table.get(&"chave_prof".to_string()));
-    printIn!("Valor para 'nao_existe': {:?}", table.get(&"nao_existe".to_string()));
+    println!("Valor para 'Chave1': {:?}", table.get(&"Chave1".to_string()));
+    println!("Valor para 'Chave2': {:?}", table.get(&"Chave2".to_string()));
+    println!("Valor para 'Outra_chave': {:?}", table.get(&"Outra_chave".to_string()));
+    println!("Valor para 'chave_prof': {:?}", table.get(&"chave_prof".to_string()));
+    println!("Valor para 'nao_existe': {:?}", table.get(&"nao_existe".to_string()));
 
 
 

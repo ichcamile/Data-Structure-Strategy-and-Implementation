@@ -29,7 +29,7 @@ impl Graph {
     //função auxiliar para DFS recursivo
     fn dfs_util(&self, v: usize, visited: &mut Vec<bool>){
         visited[v] = true;
-        printIn!("Visitando vértice: {}", v);
+        println!("Visitando vértice: {}", v);
 
         for &neighbor in &self.adj_list[v]{
             if !visited[neighbor]{
@@ -41,7 +41,7 @@ impl Graph {
     // executa a DFS a partir de um vértice inicial
     fn dfs(&self, start:usize){
         let mut visited = vec![false; self.vertices];
-        printIn!("DFS a partir do vértice {}", start);
+        println!("DFS a partir do vértice {}", start);
         self.dfs_util(start, &mut visited);
     }
 
@@ -53,9 +53,9 @@ impl Graph {
         visited[start] = true;
         queue.push_back(start);
 
-        printIn!("BFS a partir do vértice: {}", start);
+        println!("BFS a partir do vértice: {}", start);
         while let Some(v) = queue.pop_front(){
-            printIn!("Visitando vértice: {}", v);
+            println!("Visitando vértice: {}", v);
             for &neighbor in &self.adj_list[v]{
                 if !visited[neighbor]{
                     visited[neighbor] = true;
@@ -82,7 +82,7 @@ fn main(){
 
     //realiza a travessia DFS a partir do vertice 0 
     graph.dfs(0);
-    printIn!("-------------------------");
+    println!("-------------------------");
 
     //realiza a travessia BFS a partir do vertice 0 
     graph.bfs(0);
