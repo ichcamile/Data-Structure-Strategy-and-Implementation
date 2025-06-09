@@ -78,19 +78,5 @@ Usamos a notação **Big-O** para descrever o desempenho dos algoritmos:
 - **Jogos**: árvores de decisão e grafos para IA
 - **E-commerce**: arrays, árvores e listas para produtos, categorias e estoques
 
----
 
-## 📌 Organização do Repositório
-
-```bash
-📁 estrutura-de-dados/
-├── arrays/
-├── listas-ligadas/
-├── pilhas/
-├── filas/
-├── arvores/
-├── grafos/
-├── tabelas-hash/
-├── algoritmos/
-└── README.md  ← este arquivo
 
