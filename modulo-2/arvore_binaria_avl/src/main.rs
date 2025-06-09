@@ -10,7 +10,6 @@ struct Node {
 }
 
 impl Node {
-    // Cria um novo nó
     fn new(value: i32) -> Self {
         Node {
             value,
@@ -20,22 +19,18 @@ impl Node {
         }
     }
 
-    // Calcula a altura de um nó
     fn height(node: &Option<Box<Node>>) -> i32 {
         node.as_ref().map_or(0, |n| n.height)
     }
 
-    // Calcula o fator de balanceamento de um nó
     fn balance_factor(&self) -> i32 {
         Node::height(&self.left) - Node::height(&self.right)
     }
 
-    // Atualiza a altura de um nó
     fn update_height(&mut self) {
         self.height = cmp::max(Node::height(&self.left), Node::height(&self.right)) + 1;
     }
 
-    // Rotação à direita
     fn rotate_right(mut self) -> Box<Node> {
         let mut left_child = self.left.take().unwrap();
         self.left = left_child.right.take();
@@ -45,7 +40,6 @@ impl Node {
         Box::new(left_child)
     }
 
-    // Rotação à esquerda
     fn rotate_left(mut self) -> Box<Node> {
         let mut right_child = self.right.take().unwrap();
         self.right = right_child.left.take();
@@ -55,7 +49,6 @@ impl Node {
         Box::new(right_child)
     }
 
-    // Balanceia a árvore AVL
     fn balance(mut self) -> Box<Node> {
         self.update_height();
         let balance = self.balance_factor();
@@ -81,10 +74,9 @@ impl Node {
         Box::new(self)
     }
 
-    // Insere um valor na árvore
     fn insert(mut self, value: i32) -> Box<Node> {
         if value < self.value {
-            self.left = match self.left 
+            self.left = match self.left {
                 Some(left) => Some(left.insert(value)),
                 None => Some(Box::new(Node::new(value))),
             };
@@ -97,7 +89,6 @@ impl Node {
         self.balance()
     }
 
-    // Busca um valor na árvore
     fn search(&self, value: i32) -> bool {
         if value == self.value {
             true
@@ -107,7 +98,7 @@ impl Node {
             self.right.as_ref().map_or(false, |right| right.search(value))
         }
     }
-
+} // <- ESSA chave estava faltando antes
 
 // Definição da árvore
 #[derive(Debug)]
@@ -135,7 +126,6 @@ impl Tree {
 fn main() {
     let mut tree = Tree::new();
 
-    // Inserção de valores
     tree.insert(10);
     tree.insert(20);
     tree.insert(30);
@@ -143,7 +133,6 @@ fn main() {
     tree.insert(50);
     tree.insert(25);
 
-    // Busca de valores
     println!("Busca por 20: {}", tree.search(20)); // true
     println!("Busca por 15: {}", tree.search(15)); // false
 }
